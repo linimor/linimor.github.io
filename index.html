@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Personal homepage of Linmao Li, a computer science master's student at Harbin Institute of Technology.">
     <title>Linmao Li - Homepage</title>
+    <script>
+      (() => {
+        const hour = new Date().getHours();
+        const autoTheme = hour >= 19 || hour < 7 ? "dark" : "light";
+        let savedTheme = null;
+
+        try {
+          savedTheme = localStorage.getItem("theme");
+        } catch {
+          savedTheme = null;
+        }
+
+        document.documentElement.dataset.theme = savedTheme || autoTheme;
+      })();
+    </script>
     <link rel="stylesheet" href="assets/style.css">
     <script defer src="assets/main.js"></script>
   </head>
@@ -42,17 +57,37 @@
       <symbol id="icon-chevron" viewBox="0 0 24 24">
         <path d="m8 10 4 4 4-4"></path>
       </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="m4.9 4.9 1.4 1.4"></path>
+        <path d="m17.7 17.7 1.4 1.4"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="m4.9 19.1 1.4-1.4"></path>
+        <path d="m17.7 6.3 1.4-1.4"></path>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 14.4A8.5 8.5 0 0 1 9.6 3a7 7 0 1 0 11.4 11.4z"></path>
+      </symbol>
     </svg>
 
     <header class="topbar">
       <a class="home-link" href="#top">Homepage</a>
-      <nav aria-label="Primary navigation">
-        <a href="#about">About Me</a>
-        <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="topbar-actions">
+        <nav aria-label="Primary navigation">
+          <a href="#about">About Me</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
+          <svg class="theme-icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+        </button>
+      </div>
     </header>
 
     <main id="top" class="page">
@@ -67,12 +102,12 @@
         <ul class="profile-meta">
           <li><svg><use href="#icon-lab"></use></svg><span>ViLab</span></li>
           <li><svg><use href="#icon-map"></use></svg><span>Harbin, China</span></li>
-          <li><svg><use href="#icon-mail"></use></svg><a href="mailto:18526734452@163.com">Email</a></li>
+          <li><svg><use href="#icon-mail"></use></svg><a href="mailto:25S103474@stu.hit.edu.cn">Email</a></li>
           <li><svg><use href="#icon-id"></use></svg><a href="https://orcid.org/0009-0006-0546-2855">ORCID</a></li>
         </ul>
 
         <div class="quick-links" aria-label="Profile links">
-          <a href="mailto:18526734452@163.com" aria-label="Email"><svg><use href="#icon-mail"></use></svg></a>
+          <a href="mailto:25S103474@stu.hit.edu.cn" aria-label="Email"><svg><use href="#icon-mail"></use></svg></a>
           <a href="https://orcid.org/0009-0006-0546-2855" aria-label="ORCID"><svg><use href="#icon-id"></use></svg></a>
         </div>
       </aside>
@@ -95,7 +130,7 @@
           </p>
           <p>
             I am open to research discussions and collaborations. Please feel free to
-            contact me by email.
+            contact me by email at <a href="mailto:25S103474@stu.hit.edu.cn">25S103474@stu.hit.edu.cn</a>.
           </p>
         </section>
 
@@ -182,10 +217,10 @@
         <section id="contact" class="section contact-section reveal">
           <h2>Contact</h2>
           <div class="contact-grid">
-            <a href="mailto:18526734452@163.com">
+            <a href="mailto:25S103474@stu.hit.edu.cn">
               <svg><use href="#icon-mail"></use></svg>
               <span>Email</span>
-              <strong>18526734452@163.com</strong>
+              <strong>25S103474@stu.hit.edu.cn</strong>
             </a>
             <a href="https://orcid.org/0009-0006-0546-2855">
               <svg><use href="#icon-id"></use></svg>
